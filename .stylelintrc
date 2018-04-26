@@ -1,0 +1,34 @@
+{
+  "rules": {
+    "indentation": 2,
+
+    "declaration-colon-space-after": "always",
+    "declaration-colon-space-before": "never",
+    "block-opening-brace-space-after": "always-single-line",
+    "block-opening-brace-space-before": "always",
+    "block-closing-brace-space-before": "always-single-line",
+    "selector-combinator-space-after": "always",
+    "selector-combinator-space-before": "always",
+    "selector-list-comma-newline-after": "always",
+    "block-opening-brace-newline-after": "always",
+    "selector-list-comma-space-before": "never",
+    "value-list-comma-space-after": "always",
+    "value-list-comma-space-before": "never",
+
+    "color-no-invalid-hex": true,
+    "unit-no-unknown": true,
+    "block-no-empty": true,
+    "property-no-unknown": true,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "declaration-block-no-duplicate-properties": true,
+    "selector-pseudo-class-no-unknown": true,
+    "selector-pseudo-element-no-unknown": true,
+    "selector-type-no-unknown": true,
+    "media-feature-name-no-unknown": true,
+    "shorthand-property-no-redundant-values": true,
+    "declaration-no-important": true,
+    "number-no-trailing-zeros": true,
+    "length-zero-no-unit": true,
+    "no-missing-end-of-source-newline": true,
+  }
+}

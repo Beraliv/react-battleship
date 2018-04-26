@@ -1,0 +1,15 @@
+{
+  "editor.tabSize": 2,
+  "editor.autoIndent": true,
+
+  "stylelint.enable": true,
+  "css.validate": false,
+  "scss.validate": false,
+
+"eslint.packageManager": "yarn",
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.options": { 
+    "configFile": ".eslintrc"
+  }
+}

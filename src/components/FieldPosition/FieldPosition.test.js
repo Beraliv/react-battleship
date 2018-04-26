@@ -9,7 +9,7 @@ it('renders without crashing if have all required fields', () => {
       missed={false}
       injured={false}
       killed={false}
-      handleClick={e => console.warn(e.target.value)}
+      handleClick={e => alert(e.target.value)}
     />,
     div
   );

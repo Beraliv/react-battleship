@@ -53,3 +53,21 @@ You can see built example [here](https://beraliv.github.io/react-battleship/)
 ### End of the game with statistics and play again button
 
 ![end](https://github.com/Beraliv/react-battleship/blob/master/images/end.png)
+
+## Browsers
+
+### Supported
+
+- [ ] IE 9
+- [ ] IE 10
+- [x] IE 11
+- [ ] Safari
+- [x] Chrome
+  - [x] Mobile (65.0, with Desktop version of site)
+  - [x] Desktop (56.0, 65.0)
+- [x] Firefox (59.0.2)
+- [x] Opera (52.0)
+
+### Not working
+
+- [x] IE 8 (React issues)

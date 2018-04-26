@@ -30,16 +30,26 @@ yarn eject
 
 You can see built example [here](https://beraliv.github.io/react-battleship/)
 
-The interface looks like that:
+## Interface
 
 ![UI](https://github.com/Beraliv/react-battleship/blob/master/images/battlefield.png)
 
-![Field position at the very beginning](https://github.com/Beraliv/react-battleship/blob/master/images/not-clicked-field-position.png)
+### Field position at the very beginning
 
-![Missed field position](https://github.com/Beraliv/react-battleship/blob/master/images/missed-field-position.png)
+![not-clicked-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/not-clicked-field-position.png)
 
-![Injured field position](https://github.com/Beraliv/react-battleship/blob/master/images/injured-field-position.png)
+### Missed field position
 
-![Fired field position](https://github.com/Beraliv/react-battleship/blob/master/images/fired-field-position.png)
+![missed-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/missed-field-position.png)
 
-![End of the game with statistics and play again button](https://github.com/Beraliv/react-battleship/blob/master/images/end.png)
+### Injured field position
+
+![injured-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/injured-field-position.png)
+
+### Fired field position
+
+![fired-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/fired-field-position.png)
+
+### End of the game with statistics and play again button
+
+![end](https://github.com/Beraliv/react-battleship/blob/master/images/end.png)

@@ -1,9 +1,12 @@
 {
+  "homepage": "https://beraliv.github.io/react-battleship/",
   "name": "react-battleship",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",
+    "raf": "^3.4.0",
     "ramda": "^0.25.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -20,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm i -g gh-pages && yarn build && gh-pages -d build"
   }
 }

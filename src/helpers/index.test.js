@@ -5,9 +5,9 @@ import * as helpers from './';
 const fieldGenerator = (n, filled) => Array(n).fill(null).map(() =>
   Array(n).fill(null).map(() => ({
     filled,
-    missed: false,
-    injured: false,
-    killed: false
+    miss: false,
+    hit: false,
+    sank: false
   }))
 );
 

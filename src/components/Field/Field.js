@@ -16,9 +16,9 @@ class Field extends React.Component {
       positions,
       ships,
       totals: {
-        missed: 0,
-        injured: 0,
-        killed: 0
+        miss: 0,
+        hit: 0,
+        sank: 0
       }
     };
   }
@@ -26,33 +26,33 @@ class Field extends React.Component {
   handleClick(i, j) {
     this.setState(({positions, ships, totals}) => {
       const ship = ships.find(s => s.findIndex(([x, y]) => x === i && y === j) !== -1);
-      const isMissed = ship === null || ship === undefined;
-      const isKilled = !isMissed && ship.every(([x, y]) => positions[x][y].injured || (x === i && y === j));
-      const isInjured = !isMissed && !isKilled;
+      const isMiss = ship === null || ship === undefined;
+      const isSank = !isMiss && ship.every(([x, y]) => positions[x][y].hit || (x === i && y === j));
+      const isHit = !isMiss && !isSank;
       const newState = clone({positions, ships, totals});
 
-      if (isKilled) {
+      if (isSank) {
         ship.forEach(([x, y]) => {
           newState.positions[x][y] = {
             ...newState.positions[x][y],
-            injured: false,
-            killed: true
+            hit: false,
+            sank: true
           };
         });
-        newState.totals.injured -= ship.length - 1;
-        newState.totals.killed += ship.length;
-      } else if (isInjured) {
+        newState.totals.hit -= ship.length - 1;
+        newState.totals.sank += ship.length;
+      } else if (isHit) {
         newState.positions[i][j] = {
           ...newState.positions[i][j],
-          injured: true
+          hit: true
         };
-        newState.totals.injured++;
-      } else {
+        newState.totals.hit++;
+      } else /* if (isMiss) */ {
         newState.positions[i][j] = {
           ...newState.positions[i][j],
-          missed: true
+          miss: true
         };
-        newState.totals.missed++;
+        newState.totals.miss++;
       }
 
       return newState;
@@ -64,8 +64,8 @@ class Field extends React.Component {
   }
 
   render() {
-    const {totals: {killed, missed}} = this.state;
-    const isFinished = killed === 20;
+    const {totals: {sank, miss}} = this.state;
+    const isFinished = sank === 20;
 
     const field = this.state.positions.map((row, i) => (
       <div
@@ -84,14 +84,14 @@ class Field extends React.Component {
 
     const win = (
       <div className="win">
-        <div className="missed">
-          Missed: {missed}
+        <div className="miss">
+          Misses: {miss}
         </div>
-        <div className="killed">
-          Killed: 20
+        <div className="sunk">
+          Sunk: 20
         </div>
         <div className="rest">
-          Rest: {80 - missed}
+          Rest: {80 - miss}
         </div>
         <input type="button" value="Play again" onClick={() => this.reloadPage()} />
       </div>

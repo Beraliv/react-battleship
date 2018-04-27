@@ -80,9 +80,9 @@ export const generateBattleField = (n, shipTypes) => {
   const field = Array(n).fill(null).map(() =>
     Array(n).fill(null).map(() => ({
       filled: false,
-      missed: false,
-      injured: false,
-      killed: false
+      miss: false,
+      hit: false,
+      sank: false
     }))
   );
   const iter = Array(n).fill(0).map((_, i) => i);

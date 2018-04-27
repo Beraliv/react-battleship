@@ -38,17 +38,17 @@ You can see built example [here](https://beraliv.github.io/react-battleship/)
 
 ![not-clicked-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/not-clicked-field-position.png)
 
-### Missed field position
+### 'Miss' field position
 
-![missed-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/missed-field-position.png)
+![miss-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/miss-field-position.png)
 
-### Injured field position
+### 'Hit' field position
 
-![injured-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/injured-field-position.png)
+![hit-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/hit-field-position.png)
 
-### Fired field position
+### 'Sank' field position
 
-![fired-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/fired-field-position.png)
+![sank-field-position](https://github.com/Beraliv/react-battleship/blob/master/images/sank-field-position.png)
 
 ### End of the game with statistics and play again button
 
@@ -61,7 +61,7 @@ You can see built example [here](https://beraliv.github.io/react-battleship/)
 - [ ] IE 9
 - [ ] IE 10
 - [x] IE 11
-- [ ] Safari
+- [x] Safari (11.1)
 - [x] Chrome
   - [x] Mobile (65.0, with Desktop version of site)
   - [x] Desktop (56.0, 65.0)

@@ -4,14 +4,14 @@ import classNames from 'classnames';
 
 import './FieldPosition.css';
 
-const FieldPosition = ({missed, injured, killed, handleClick}) => (
+const FieldPosition = ({miss, hit, sank, handleClick}) => (
   <div
     className={classNames(
       'field-position',
       {
-        missed,
-        injured,
-        killed
+        miss,
+        hit,
+        sank
       }
     )}
     onClick={handleClick}
@@ -20,9 +20,9 @@ const FieldPosition = ({missed, injured, killed, handleClick}) => (
 );
 
 FieldPosition.propTypes = {
-  missed: PropTypes.bool.isRequired,
-  injured: PropTypes.bool.isRequired,
-  killed: PropTypes.bool.isRequired,
+  miss: PropTypes.bool.isRequired,
+  hit: PropTypes.bool.isRequired,
+  sank: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired
 };
 

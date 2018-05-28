@@ -1,4 +1,4 @@
-import {xprod, clone, without, unnest} from 'ramda';
+import {xprod, clone, without, uniq, unnest} from 'ramda';
 
 export const LEFT = 0;
 export const UP = 1;
@@ -39,7 +39,7 @@ export const getFieldPositionsAround = ship => {
     const around = xprod([x - 1, x, x + 1], [y - 1, y, y + 1]);
     return coords.concat(around);
   }, []);
-  return without(ship, allAroundCoords);
+  return uniq(without(ship, allAroundCoords));
 };
 
 export const buildShip = (x, y, direction, size) => {

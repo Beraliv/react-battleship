@@ -72,6 +72,43 @@ test('isValid', () => {
   expect(isValid(EMPTY_FIELD, N, N)).toBeFalsy();
 });
 
+test('getFieldPositionsAround', () => {
+  const {getFieldPositionsAround} = helpers;
+
+  const LENGTH_OF_SHIP = ship => ship.length * 2 + 6;
+
+  const SHIPS = [
+    [[N / 2, N / 2]],
+    [[N / 2, N / 2], [N / 2, N / 2 + 1]],
+    [[N / 2, N / 2 - 1], [N / 2, N / 2], [N / 2, N / 2 + 1]],
+    [[N / 2, N / 2 - 1], [N / 2, N / 2], [N / 2, N / 2 + 1]]
+  ];
+
+  SHIPS.forEach(ship => {
+    expect(getFieldPositionsAround(ship).length).toBe(LENGTH_OF_SHIP(ship));
+  });
+});
+
+test('getFieldPositionsAround + isPointWithinField', () => {
+  const {getFieldPositionsAround, isPointWithinField} = helpers;
+
+  const UPPER_SHIP = [[0, N / 2], [1, N / 2]];
+  const LEFT_SHIP = [[N / 2, 0], [N / 2 + 1, 0]];
+  const CENTER_SHIP = [[N / 2, N / 2], [N / 2 + 1, N / 2]];
+  const RIGHT_SHIP = [[N / 2, N - 1], [N / 2 + 1, N - 1]];
+  const BOTTOM_SHIP = [[N - 2, N / 2], [N - 1, N / 2]];
+
+  const [UPPER_AROUND, LEFT_AROUND, CENTER_AROUND, RIGHT_AROUND, BOTTOM_AROUND] =
+    [UPPER_SHIP, LEFT_SHIP, CENTER_SHIP, RIGHT_SHIP, BOTTOM_SHIP]
+      .map(ship => getFieldPositionsAround(ship).filter(([x, y]) => isPointWithinField(x, y, N)));
+
+  expect(UPPER_AROUND.length).toEqual(2 * UPPER_SHIP.length + 3);
+  expect(LEFT_AROUND.length).toEqual(LEFT_SHIP.length + 4);
+  expect(CENTER_AROUND.length).toEqual(2 * CENTER_SHIP.length + 6);
+  expect(RIGHT_AROUND.length).toEqual(RIGHT_SHIP.length + 4);
+  expect(BOTTOM_AROUND.length).toEqual(2 * BOTTOM_SHIP.length + 3);
+});
+
 test('buildShip', () => {
   const {buildShip, LEFT, UP, RIGHT, DOWN} = helpers;
 

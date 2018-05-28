@@ -14,7 +14,11 @@ const FieldPosition = ({miss, hit, sank, handleClick}) => (
         sank
       }
     )}
-    onClick={handleClick}
+    onClick={
+      !miss && !hit && !sank
+        ? handleClick
+        : () => {}
+    }
   >
   </div>
 );

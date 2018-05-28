@@ -4,23 +4,29 @@ import {clone} from 'ramda';
 
 import './Field.css';
 import FieldPosition from '../FieldPosition/FieldPosition';
-import {generateBattleField} from '../../helpers';
+import {
+  generateBattleField,
+  getFieldPositionsAround,
+  isPointWithinField
+} from '../../helpers';
+
+const INITIAL_STATE = props => {
+  const {size, shipTypes} = props;
+  const [positions, ships] = generateBattleField(size, shipTypes);
+  return {
+    positions,
+    ships,
+    totals: {
+      miss: 0,
+      hit: 0,
+      sank: 0
+    }
+  };
+};
 
 class Field extends React.Component {
-  constructor(props) {
-    super(props);
-
-    const {size, shipTypes} = props;
-    const [positions, ships] = generateBattleField(size, shipTypes);
-    this.state = {
-      positions,
-      ships,
-      totals: {
-        miss: 0,
-        hit: 0,
-        sank: 0
-      }
-    };
+  state = {
+    ...INITIAL_STATE(this.props)
   }
 
   handleClick(i, j) {
@@ -39,6 +45,14 @@ class Field extends React.Component {
             sank: true
           };
         });
+        getFieldPositionsAround(ship)
+          .filter(([x, y]) => isPointWithinField(x, y, this.props.size))
+          .forEach(([x, y]) => {
+            newState.positions[x][y] = {
+              ...newState.positions[x][y],
+              miss: true
+            };
+          });
         newState.totals.hit -= ship.length - 1;
         newState.totals.sank += ship.length;
       } else if (isHit) {
@@ -60,7 +74,9 @@ class Field extends React.Component {
   }
 
   reloadPage() {
-    window.location.reload();
+    this.setState({
+      ...INITIAL_STATE(this.props)
+    });
   }
 
   render() {

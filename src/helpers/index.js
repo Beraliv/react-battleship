@@ -28,10 +28,18 @@ export const isFree = (field, x, y) => {
 export const isValid = (field, x, y) => {
   const n = field.length;
   const close = xprod([x - 1, x, x + 1], [y - 1, y, y + 1]);
-  const around = without([x, y], close);
+  const around = without([[x, y]], close);
 
   return isPointWithinField(x, y, n)
     && around.every(([x, y]) => isFree(field, x, y));
+};
+
+export const getFieldPositionsAround = ship => {
+  const allAroundCoords = ship.reduce((coords, [x, y]) => {
+    const around = xprod([x - 1, x, x + 1], [y - 1, y, y + 1]);
+    return coords.concat(around);
+  }, []);
+  return without(ship, allAroundCoords);
 };
 
 export const buildShip = (x, y, direction, size) => {

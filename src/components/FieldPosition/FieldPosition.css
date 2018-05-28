@@ -1,9 +1,23 @@
 .field-position {
   display: inline-block;
   background-color: lightblue;
-  width: 40px;
-  height: 40px;
   border: 1px solid black;
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 320px) {
+  .field-position {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (min-width: 420px) {
+  .field-position {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .field-position.miss {

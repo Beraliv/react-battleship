@@ -4,6 +4,9 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "globals": {
+    "global": true
+  },
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"

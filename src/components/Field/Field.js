@@ -104,13 +104,13 @@ class Field extends React.Component {
     });
   }
 
-  getResults = () => JSON.parse(localStorage.getItem(LOCAL_STORAGE_ID)) || []
+  getResults = () => JSON.parse(global.localStorage.getItem(LOCAL_STORAGE_ID)) || []
 
   saveResults = (miss) => {
     const results = this.getResults();
     const time = new Date().toString().slice(0, 15);
     results.push({miss, time});
-    localStorage.setItem(LOCAL_STORAGE_ID, JSON.stringify(results));
+    global.localStorage.setItem(LOCAL_STORAGE_ID, JSON.stringify(results));
   }
 
   getFiveBest = () => this.getResults()

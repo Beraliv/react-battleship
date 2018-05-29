@@ -5,3 +5,35 @@
 .row {
   line-height: 0;
 }
+
+.statistics {
+  margin: 10px 0;
+}
+
+.time,
+.miss,
+.sunk,
+.rest {
+  display: inline-block;
+}
+
+.time img,
+.miss img,
+.sunk img,
+.rest img {
+  display: block;
+  width: 50px;
+  margin: 15px 30px;
+}
+
+input[type="button"] {
+  display: inline-block;
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  background-color: #68CCEA;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
